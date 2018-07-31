@@ -1,0 +1,15 @@
+(define (f n)
+  (if (< n 3) n
+      (  + ( f (- n 1))
+           (* 2 (f (- n 2)))
+           (* 3 (f (- n 3))) )
+      )
+  )
+(define (g n)
+  (g-iter 0 1 2 2 n)
+  )
+(define (g-iter a b c i n)
+  (if (= i n) c
+      (g-iter  b  c (+ (* 3 a) (* 2 b) c)  (+ i 1) n)
+      )
+  )
