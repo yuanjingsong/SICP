@@ -1,0 +1,13 @@
+(load "1-37.scm")
+(define (tan-cf x k)
+    (define (n i)
+      (if (= i 1) x
+          (- (* x x))
+          )
+      )    
+    (define (d i)
+      (- (* 2 i) 1)
+      )
+    ;(exact->inexact (cont-frac-recu n d k))
+    (cont-frac-recu n d k)
+  )

@@ -1,0 +1,26 @@
+(define dx 0.000001)
+(define (smooth f)
+  (lambda (x)
+    (/ (+ (f (- x dx)) (f x) (f (+ x dx))) 3)
+    )
+  )
+(define (smooth-n-times f n)
+  (if (= n 0) f
+      (smooth (smooth-n-times f (- n 1)))
+      )
+  )
+(define (smooth-n-times-iter f n)
+  (define (iter f i)
+    (if (= i 0) f
+        (iter (smooth f) (- i 1))
+        )
+    )
+  (iter f n)
+  )
+;with repeated function
+
+(load "1-43.scm")
+(define (smooth-n-times-repeated f n)
+  ((repeated smooth n) f)
+  )
+(define (square x) (* x x))
