@@ -1,0 +1,8 @@
+(define (last-pair list)
+  (cond ((null? list)
+         (display "Error")
+         )
+        ((null? (cdr list)) list )
+        (else (last-pair (cdr list)))
+        )
+  )

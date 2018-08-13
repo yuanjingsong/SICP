@@ -1,0 +1,12 @@
+(define (same-parity sample . others)
+  (define (iter lst rest result)
+    (cond ((null? lst) result)
+          (( = (remainder (car lst) 2) rest) (iter (cdr lst) rest (append result (list (car lst)))))
+          (else (iter (cdr lst)  rest result ))
+          )
+    )
+
+  (let ((g (remainder sample 2)))
+    (iter others g (list sample))
+    )
+  )
