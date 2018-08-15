@@ -1,0 +1,10 @@
+(define (square-tree tree)
+  (tree-map square tree)
+  )
+(define (tree-map func tree)
+  (cond ( (null? tree) '())
+        ( (pair? tree) (cons (tree-map func (car tree)) (tree-map func (cdr tree))) )
+        (else (func tree))
+    )
+  )
+
