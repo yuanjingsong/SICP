@@ -1,0 +1,8 @@
+(load "2-68.scm")
+(load "2-69.scm")
+(define tree (generate-huffman-tree '((A 2) (GET 2) (SHA 3) (WAH 1) (BOOM 1) ( JOB 2) (NA 16) (YIP 9) )))
+(encode '(GET A JOB) tree)
+(encode '(SHA NA  NA  NA  NA  NA  NA  NA  NA )  tree)
+(encode '(GET A JOB) tree)
+(encode '(SHA NA  NA  NA  NA  NA  NA  NA  NA )  tree)
+(encode '(WAH YIP YIP YIP YIP YIP YIP YIP YIP YIP ) tree)
