@@ -1,0 +1,30 @@
+(define (make-account balance password)
+  (define (withdraw amout)
+    (if (>= balance amout)
+        (begin (set! balance (- balance amout))
+               balance)
+        "Insufficient Funds"
+        )
+    )
+  (define (deposit amount) 
+    (set! balance (+ balance amount) )
+    )
+  (define (password-match? given-password)
+    (eq? given-password password))
+  (define (display-wrong-pass useless-arg)
+    (display "Incorrect password")
+    )  
+  (define (dispatch given-password mode)
+    (if (password-match? given-password)
+        (cond 
+          ((eq? mode 'withdraw) withdraw)
+          ((eq? mode 'deposit) deposit)
+          (else
+            (error "unkown req" mode)
+            )
+          )
+        display-wrong-pass
+        )
+    )
+  dispatch
+  )

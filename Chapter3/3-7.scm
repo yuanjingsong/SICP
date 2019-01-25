@@ -1,0 +1,11 @@
+(define (make-joint origin-acc origin-pass another-pass)
+  (lambda (given-pass mode)
+    (if (eq? given-pass another-pass)
+        (origin-acc origin-pass mode)
+        display-wrong-another-pass  
+        )
+    )
+  )
+(define (display-wrong-another-pass useless-arg)
+  (display-wrong-another-pass "Incorrect another pass")
+  )
